@@ -1,0 +1,9 @@
+rails generate scaffold User name:string \
+                             email:string \
+                             avatar:string --force
+
+rails generate scaffold Project name:string \
+                                logo:string \
+                                status:string --force
+
+rake db:drop                     
