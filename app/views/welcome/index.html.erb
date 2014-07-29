@@ -11,6 +11,15 @@
         </div>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   </form>
+
+  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
+    <p> Username:</br> <%= f.text_field :username%> </p>
+    <p> Email:</br> <%= f.text_field :email%> </p>
+    <p> Password:</br> <%= f.password_field :password%></p>
+    <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
+    <%= f.submit :Signup %>
+  <% end %>
+
 </div>
 
 <br/><hr/><br/>

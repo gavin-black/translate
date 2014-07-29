@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @user.name %>
+  <%= @user.username %>
 </p>
 
 <p>
@@ -13,6 +13,11 @@
 <p>
   <strong>Avatar:</strong>
   <%= @user.avatar %>
+</p>
+
+<p>
+   <strong>Password:</strong>
+   <%= @user.password %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
