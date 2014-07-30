@@ -21,6 +21,12 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def login
+    @user = User.new(user_params)
+    puts "HERE2 -- params -- #{user_params}"
+    puts "HERE -- #{User.authenticate(user_params['username'],user_params['password'])}"
+  end
+
   # POST /users
   # POST /users.json
   def create

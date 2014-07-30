@@ -1,22 +1,25 @@
 <div class="container">
 
-      <form class="form-signin" role="form">
+  <%= form_for(:user, :url => {:controller => 'users', :action => 'login'}) do |f| %>
         <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" class="form-control" placeholder="Name" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" required>
+        <p> Username:</br> <%= f.text_field :username%> </p>
+        <p> Password:</br> <%= f.password_field :password%></p>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
+    <%= f.submit :SignIn %>
+  <% end %>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   </form>
-
+  <hr />
   <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
     <p> Username:</br> <%= f.text_field :username%> </p>
     <p> Email:</br> <%= f.text_field :email%> </p>
     <p> Password:</br> <%= f.password_field :password%></p>
     <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
+    <%= recaptcha_tags %>
     <%= f.submit :Signup %>
   <% end %>
 
