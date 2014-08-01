@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     puts "HERE2 -- params -- #{user_params}"
     puts "HERE -- #{User.authenticate(user_params['username'],user_params['password'])}"
+    if (User.authenticate(user_params['username'],user_params['password']))
+      cookies[:username] = user_params['username'];
+      cookies.permanent.signed[:remember_token] = user_params['username'];
+    end 
   end
 
   # POST /users
