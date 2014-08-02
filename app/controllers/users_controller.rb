@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  helper_method :valid_user
   # GET /users
   # GET /users.json
   def index
@@ -19,6 +19,10 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+  end
+
+  def valid_user
+    return cookies[:token] == User.get_digest(cookies['username'])
   end
 
   def login
