@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
 
   attr_accessible :username, :email, :password, :password_confirmation
 
+  def self.get_digest(username)
+    user = User.find_by_username(username)
+    return user.digest
+  end
 
   def self.authenticate(username_or_email="", login_password="")
 
@@ -30,6 +34,11 @@ class User < ActiveRecord::Base
     end
   end   
 
+  def digest
+      puts "HERE -----> #{username} + #{encrypted_password}"
+      Digest::SHA2.hexdigest(username + encrypted_password)
+  end
+
   def match_password(login_password="")
     encrypted_password == BCrypt::Engine.hash_secret(login_password, salt)
   end
@@ -38,7 +47,7 @@ class User < ActiveRecord::Base
     unless password.blank?
       self.salt = BCrypt::Engine.generate_salt
       self.encrypted_password = BCrypt::Engine.hash_secret(password, salt)
-      puts "HERE --- #{self.encrypted_password}"
+      puts "HERE  ENC --- #{self.encrypted_password}"
     end
   end
 
