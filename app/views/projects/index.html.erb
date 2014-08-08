@@ -1,23 +1,27 @@
 <h1>Listing projects</h1>
 
 <div class="container">
-      <div class="row">
-        <div class="col-md-4">Project</div>
-        <div class="col-md-3">Translation</div>
-        <div class="col-md-3">Editing</div>
-        <div class="col-md-2">Download (<a href="">?</a>)</div>
-      </div>
-      <hr />
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Translation</th>
+        <th>Editing</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody>
     <% @projects.each do |project| %>
-      <div class="row">
-        <div class="col-md-4"><img width="25em" height="25em" src="<%= project.avatar %>" /><%= project.name %><div><small><%= project.name %></small></div></div>
-        <div class="col-md-3"><%= ratio_string(project.translated, project.total) %></div>
-        <div class="col-md-3"><%= ratio_string(project.edited, project.total) %></div>
-        <div class="col-md-2"><a href="http://tsukuru.info/dl/%5BTLWiki%5D_Subarashiki_Hibi_Partial_Patch_1.zip"><span class="glyphicon glyphicon-circle-arrow-down"></span> <%= project.patch %></a>
-        </div>
-       </div>
-      <hr />
+      <% current_project(project) %>
+      <tr class="<%= determine_color %>">
+        <td class="col-md-4"><img width="25em" height="25em" src="<%= project.avatar %>" /><%= project.name %><div><small><%= project.name %></small></div></td>
+        <td class="col-md-3"><%= ratio_string(project.translated) %></td>
+        <td class="col-md-3"><%= ratio_string(project.edited) %></td>
+        <td class="col-md-2"><a href="http://tsukuru.info/dl/%5BTLWiki%5D_Subarashiki_Hibi_Partial_Patch_1.zip"><span class="glyphicon glyphicon-circle-arrow-down"></span> <%= project.patch %></a></td>
+      <tr />
     <% end %>
+    </tbody>
+  </table>
 </div>
 
 
