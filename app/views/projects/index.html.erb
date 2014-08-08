@@ -11,8 +11,8 @@
     <% @projects.each do |project| %>
       <div class="row">
         <div class="col-md-4"><img width="25em" height="25em" src="<%= project.avatar %>" /><%= project.name %><div><small><%= project.name %></small></div></div>
-        <div class="col-md-3"><%= project.translated %>/<%= project.total %>(<%= 100 * project.edited / project.total %>%)</div>
-        <div class="col-md-3"><%= project.edited %>/<%= project.total %>(<%= 100 * project.edited / project.total %>%)</div>
+        <div class="col-md-3"><%= ratio_string(project.translated, project.total) %></div>
+        <div class="col-md-3"><%= ratio_string(project.edited, project.total) %></div>
         <div class="col-md-2"><a href="http://tsukuru.info/dl/%5BTLWiki%5D_Subarashiki_Hibi_Partial_Patch_1.zip"><span class="glyphicon glyphicon-circle-arrow-down"></span> <%= project.patch %></a>
         </div>
        </div>
