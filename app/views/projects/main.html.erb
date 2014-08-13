@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-inverse navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+     <ul class="nav navbar-nav">
+       <li class="hidden-xs">
+         <a id="profile-pic" class="profile-pic" href="">
+           <img src="https://lh4.googleusercontent.com/-uFFXFHWiIvc/T4tlg5FZa-I/AAAAAAAABHA/VD2P8jJ3-8k/w140-h140-p/matsu3.png" height="20em" width="20em"></img>
+         </a>
+       </li>
+       <li>
+         <span class="separator"></span>
+       </li>
+       <li>
+         <a class="has_bottom_tooltip" title="" href="/users/sign_out">
+           <span class="glyphicon glyphicon-th-list"/>
+         </a>
+       </li>
+       
+       <li>
+         <a class="has_bottom_tooltip" title="" href="/users/sign_out">
+           <span class="glyphicon glyphicon-envelope" style="color: green"/>
+         </a>
+       </li>
+     </ul>   
+     <ul class="nav navbar-nav pull-right">
+       <%= render 'users/account' %>
+       
+     </ul>   
+  </div>
+</nav>
+
+<%= render 'listing' %>
+

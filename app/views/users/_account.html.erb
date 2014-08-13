@@ -1,0 +1,24 @@
+<% if true %>
+  <li>
+    <a class="has_bottom_tooltip" title="" href="/users/sign_out">
+      <span class="glyphicon glyphicon-cog"/>
+    </a>
+  </li>
+  <li>
+    <a class="has_bottom_tooltip" title="" href="/users/sign_out">
+      <span class="glyphicon glyphicon-log-out"/>
+    </a>
+    <div class="tooltip fade bottom in" style="display: block; top: 44px; left: -10px;"></div>
+  </li>
+<% else %>
+   <li>
+      <span>User: <input type="text"/> </span>
+   </li>
+   <li>
+      <span>Pass: <input type="password"/> </span>
+   </li>
+   <li>
+      <input type="button" value="Login"/>
+   </li>
+
+<% end %>

@@ -4,20 +4,24 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Project</th>
-        <th>Translation</th>
-        <th>Editing</th>
-        <th>Download</th>
+        <th>Avatar</th>
+        <th>Name</th>
+        <th>Tranlated</th>
+        <th>Edited</th>
+        <th>Total</th>
+        <th>Patch</th>
       </tr>
     </thead>
     <tbody>
     <% @projects.each do |project| %>
       <% current_project(project) %>
-      <tr class="<%= determine_color %>">
-        <td class="col-md-4"><img width="25em" height="25em" src="<%= project.avatar %>" /><%= project.name %><div><small><%= project.name %></small></div></td>
-        <td class="col-md-3"><%= ratio_string(project.translated) %></td>
-        <td class="col-md-3"><%= ratio_string(project.edited) %></td>
-        <td class="col-md-2"><a href="http://tsukuru.info/dl/%5BTLWiki%5D_Subarashiki_Hibi_Partial_Patch_1.zip"><span class="glyphicon glyphicon-circle-arrow-down"></span> <%= project.patch %></a></td>
+      <tr>
+        <td><%= project.avatar %></td>
+        <td><%= project.name %></td>
+        <td><%= project.translated %></td>
+        <td><%= project.edited %></td>
+        <td><%= project.total %></td>
+        <td><%= project.patch %></td>
       <tr />
     <% end %>
     </tbody>
