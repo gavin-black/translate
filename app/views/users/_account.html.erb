@@ -1,24 +1,40 @@
-<% if true %>
+<% if false %>
   <li>
     <a class="has_bottom_tooltip" title="" href="/users/sign_out">
-      <span class="glyphicon glyphicon-cog"/>
+      <span class="nav-icon glyphicon glyphicon-cog"/>
     </a>
   </li>
   <li>
     <a class="has_bottom_tooltip" title="" href="/users/sign_out">
-      <span class="glyphicon glyphicon-log-out"/>
+      <span class="nav-icon glyphicon glyphicon-log-out"/>
     </a>
     <div class="tooltip fade bottom in" style="display: block; top: 44px; left: -10px;"></div>
   </li>
 <% else %>
+   <%= form_for(:user, :url => {:controller => 'users', :action => 'login'}) do |f| %>
+   <ul class="nav navbar-nav">
    <li>
-      <span>User: <input type="text"/> </span>
+      <div class="nav-text">Username</div> 
+      <div><%= f.text_field :text %></input> </div>
+      <input type="checkbox">
+        <span class="nav-text">Stay logged in</span>
+      </input>
    </li>
+   <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
    <li>
-      <span>Pass: <input type="password"/> </span>
+      <div class="nav-text">Password</div> 
+      <div>
+        <div><%= f.password_field :password %></input> </div>
+        <br/>
+        <!-- <a href="">Forgot your password?</a> -->
+      </div>
    </li>
+   <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
    <li>
-      <input type="button" value="Login"/>
+      <div>&nbsp;</div> 
+       <%= f.submit :SignIn %>
    </li>
-
+   </ul>
+  <% end %>
+  </form>
 <% end %>

@@ -7,11 +7,11 @@ Translate::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  #root 'welcome#index'
   root 'projects#main'
 
   post "user/login" => "users#login"
   get "user/test" => "users#test"
+  get "signup" => 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
