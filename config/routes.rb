@@ -1,4 +1,6 @@
 Translate::Application.routes.draw do
+  resources :sections
+
   resources :projects
 
   resources :users

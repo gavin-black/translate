@@ -25,9 +25,11 @@ class SectionsController < ApplicationController
   # POST /sections.json
   def create
     @section = Section.new(section_params)
-
+    puts "HERE -- #{section_params}"
     respond_to do |format|
+      puts "HERE4"
       if @section.save
+        puts "HERE5"
         format.html { redirect_to @section, notice: 'Section was successfully created.' }
         format.json { render action: 'show', status: :created, location: @section }
       else
