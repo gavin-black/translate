@@ -14,6 +14,7 @@ class SectionsController < ApplicationController
 
   # GET /sections/new
   def new
+    puts "HERE -- new"
     @section = Section.new
   end
 
@@ -24,8 +25,14 @@ class SectionsController < ApplicationController
   # POST /sections
   # POST /sections.json
   def create
-    @section = Section.new(section_params)
-    puts "HERE -- #{section_params}"
+    project_obj = Project.find(section_params[:project])
+    params = {"scenario"=> section_params[:scenario], 
+              "title"=> section_params[:title], 
+              "status"=> section_params[:status], 
+              "project"=>project_obj}
+
+    puts "HERE -- #{params}"
+    @section = Section.new(params)
     respond_to do |format|
       puts "HERE4"
       if @section.save
@@ -71,6 +78,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:scenario, :title, :status)
+      params.require(:section).permit(:scenario, :title, :status, :user, :project)
     end
 end

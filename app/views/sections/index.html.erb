@@ -6,6 +6,7 @@
       <th>Scenario</th>
       <th>Title</th>
       <th>Status</th>
+      <th>Project</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,6 +19,7 @@
         <td><%= section.scenario %></td>
         <td><%= section.title %></td>
         <td><%= section.status %></td>
+        <td><%= section.project%></td>
         <td><%= link_to 'Show', section %></td>
         <td><%= link_to 'Edit', edit_section_path(section) %></td>
         <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>

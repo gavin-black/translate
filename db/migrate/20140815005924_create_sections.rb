@@ -4,6 +4,7 @@ class CreateSections < ActiveRecord::Migration
       t.string :scenario
       t.string :title
       t.string :status
+      t.integer :project
 
       t.timestamps
     end

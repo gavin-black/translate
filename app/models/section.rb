@@ -1,3 +1,4 @@
 class Section < ActiveRecord::Base
-  attr_accessible :scenario, :title, :status
+  belongs_to :project
+  attr_accessible :scenario, :title, :status, :project
 end
