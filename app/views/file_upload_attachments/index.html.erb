@@ -1,0 +1,29 @@
+<h1>Listing file_upload_attachments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>File upload</th>
+      <th>Scenario</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @file_upload_attachments.each do |file_upload_attachment| %>
+      <tr>
+        <td><%= file_upload_attachment.file_upload_id %></td>
+        <td><%= file_upload_attachment.scenario %></td>
+        <td><%= link_to 'Show', file_upload_attachment %></td>
+        <td><%= link_to 'Edit', edit_file_upload_attachment_path(file_upload_attachment) %></td>
+        <td><%= link_to 'Destroy', file_upload_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New File upload attachment', new_file_upload_attachment_path %>

@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @file_upload.title %>
+</p>
+
+<% @file_upload_attachments.each do |p| %>
+  <%= image_tag p.scenario_url %>
+<% end %>
+
+<%= link_to 'Edit', edit_file_upload_path(@file_upload) %> |
+<%= link_to 'Back', file_uploads_path %>

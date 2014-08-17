@@ -1,4 +1,8 @@
 Translate::Application.routes.draw do
+  resources :file_upload_attachments
+
+  resources :file_uploads
+
   resources :sections
 
   resources :projects
