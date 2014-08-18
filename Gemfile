@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'protected_attributes'
 gem "recaptcha", :require => "recaptcha/rails"
 gem "carrierwave"
+gem 'delayed_job_active_record'
+gem 'daemons'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
