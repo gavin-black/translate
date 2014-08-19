@@ -36,9 +36,7 @@ class FileUploadsController < ApplicationController
       if @file_upload.save
         params[:file_upload_attachments]['scenario'].each do |s|
           @file_upload_attachment = @file_upload.file_upload_attachments.create!(:scenario => s, :file_upload_id => @file_upload.id)
-          puts "HERE -- Scenario -- #{s.original_filename} -- #{s.content_type} -- #{s.tempfile} -- #{@file_upload.id}"
-Delayed::Worker.destroy_failed_jobs = false  
-          Delayed::Job.enqueue ParseJob.new(nil)
+          Delayed::Job.enqueue ParseJob.new(@file_upload_attachment);
         end
         format.html { redirect_to @file_upload, notice: 'File upload was successfully created.' }
         format.json { render action: 'show', status: :created, location: @file_upload }
